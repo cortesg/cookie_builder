@@ -11,6 +11,9 @@
 				margin-top: 10px;
 				text-align: center;
 			}
+			h1 {
+				color: white;
+			}
 			h2 {
 				color: white;
 			}
@@ -57,11 +60,9 @@
 			    z-index: -100;
 			}
 		</style>
-		<script src="cookies.js"></script>
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 	</head>
 	<body>
-	<img src="cookie.gif" id="background">
+		<img src="cookie.gif" id="background">
 		<!-- <h1 id="site_name">a site</h1>
 		<hr>
 		<h3 id="about">about cookies</h3> -->
@@ -76,53 +77,56 @@
 		<div id="chocolatediv">Choco</div>
 		<h2 id="chocolatecount">0</h2>
 
-		<!-- combine all cookie count h2 element?? -->
+		<h1 id="totalcount">0</h1>
+
 		<div id="deletecookies">Delete</div>
-
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-		<script type="text/javascript">
-
-		$(document).ready(function(){
-		    //set sugar cookie
-		    Cookies.set("sugar", "0");
-		    //getting the value of sugar cookie and assigning it to a variable
-		    var sugarCookieCount = Cookies.get("sugar");
-		    $("#sugardiv").on("click",function(){
-		        sugarCookieCount++;
-		        //set the incremented value of sugarCookieCount variable to sugar cookie
-		        Cookies.set("sugar",sugarCookieCount);
-		    });
-
-		    //set lemon cookie
-		    Cookies.set("lemon", "0");
-		    var lemonCookieCount = Cookies.get("lemon");
-		    $("#lemondiv").on("click",function(){
-		        lemonCookieCount++;
-		        Cookies.set("lemon",lemonCookieCount);
-		    });
-
-		    //set choocolate cookie
-		    Cookies.set("chocolate", "0");
-		    var chocolateCookieCount = Cookies.get("chocolate");
-		    $("#chocolatediv").on("click",function(){
-		        chocolateCookieCount++;
-		        Cookies.set("chocolate", chocolateCookieCount);
-		    });
-
-		    //turn cookie count to 0
-		    $("#deletecookies").on("click",function(){
-		    	Cookies.set("sugar", "0");
-		    	Cookies.set("lemon", "0");
-		    	Cookies.set("chocolate", "0");
-		    });
-		});
-		var sugarCookieCount = Cookies.get("sugar");
-		var lemonCookieCount = Cookies.get("lemon");
-		var chocolateCookieCount = Cookies.get("chocolate");
-		document.getElementById("sugarcount").innerHTML = sugarCookieCount + " sugars"
-		document.getElementById("lemoncount").innerHTML =  + lemonCookieCount + " lemons"
-		document.getElementById("chocolatecount").innerHTML = chocolateCookieCount + " chocolates"	
 		
+		<script src="cookies.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+		<script>
+
+			$(document).ready(function(){
+			    //set sugar cookie
+			    Cookies.set("sugar", "0");
+			    //getting the value of sugar cookie and assigning it to a variable
+			    var sugarCookieCount = Cookies.get("sugar");
+			    $("#sugardiv").on("click",function(){
+			        sugarCookieCount++;
+			        //set the incremented value of sugarCookieCount variable to sugar cookie
+			        Cookies.set("sugar",sugarCookieCount);
+			    });
+
+			    //set lemon cookie
+			    Cookies.set("lemon", "0");
+			    var lemonCookieCount = Cookies.get("lemon");
+			    $("#lemondiv").on("click",function(){
+			        lemonCookieCount++;
+			        Cookies.set("lemon",lemonCookieCount);
+			    });
+
+			    //set choocolate cookie
+			    Cookies.set("chocolate", "0");
+			    var chocolateCookieCount = Cookies.get("chocolate");
+			    $("#chocolatediv").on("click",function(){
+			        chocolateCookieCount++;
+			        Cookies.set("chocolate", chocolateCookieCount);
+			    });
+
+			    //turn cookie count to 0
+			    $("#deletecookies").on("click",function(){
+			    	Cookies.set("sugar", "0");
+			    	Cookies.set("lemon", "0");
+			    	Cookies.set("chocolate", "0");
+			    });
+			});
+			var sugarCookieCount = Cookies.get("sugar");
+			var lemonCookieCount = Cookies.get("lemon");
+			var chocolateCookieCount = Cookies.get("chocolate");
+			document.getElementById("sugarcount").innerHTML = sugarCookieCount + " sugars"
+			document.getElementById("lemoncount").innerHTML =  + lemonCookieCount + " lemons"
+			document.getElementById("chocolatecount").innerHTML = chocolateCookieCount + " chocolates"	
+			document.getElementById("totalcount").innerHTML = (parseInt(sugarCookieCount) + parseInt(lemonCookieCount) + parseInt(chocolateCookieCount)).toString() + " total COOKIES"
+
 		</script>
 	</body>
 </html>
