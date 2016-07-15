@@ -56,7 +56,6 @@
 			    overflow: hidden;
 			    z-index: -100;
 			}
-
 		</style>
 		<script src="cookies.js"></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
@@ -84,7 +83,6 @@
 		<script type="text/javascript">
 
 		$(document).ready(function(){
-
 		    //set sugar cookie
 		    Cookies.set("sugar", "0");
 		    //getting the value of sugar cookie and assigning it to a variable
@@ -93,8 +91,6 @@
 		        sugarCookieCount++;
 		        //set the incremented value of sugarCookieCount variable to sugar cookie
 		        Cookies.set("sugar",sugarCookieCount);
-		        // assigning the value of sugarCookiecount to variable 
-		        var sugaryum = Cookies.get("sugar");
 		    });
 
 		    //set lemon cookie
@@ -103,7 +99,6 @@
 		    $("#lemondiv").on("click",function(){
 		        lemonCookieCount++;
 		        Cookies.set("lemon",lemonCookieCount);
-		        var lemonyum = Cookies.get("lemon");
 		    });
 
 		    //set choocolate cookie
@@ -112,7 +107,6 @@
 		    $("#chocolatediv").on("click",function(){
 		        chocolateCookieCount++;
 		        Cookies.set("chocolate", chocolateCookieCount);
-		        var chocolateyum = Cookies.get("chocolate");
 		    });
 
 		    //turn cookie count to 0
@@ -122,14 +116,13 @@
 		    	Cookies.set("chocolate", "0");
 		    });
 		});
-
 		var sugarCookieCount = Cookies.get("sugar");
 		var lemonCookieCount = Cookies.get("lemon");
 		var chocolateCookieCount = Cookies.get("chocolate");
 		document.getElementById("sugarcount").innerHTML = sugarCookieCount + " sugars"
 		document.getElementById("lemoncount").innerHTML =  + lemonCookieCount + " lemons"
 		document.getElementById("chocolatecount").innerHTML = chocolateCookieCount + " chocolates"	
-
+		
 		</script>
 	</body>
 </html>
