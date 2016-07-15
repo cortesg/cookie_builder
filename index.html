@@ -31,12 +31,12 @@
 				background-color: cyan;
 				float: left;
 			}
-			#lemondiv {
-				background-color: #F2F25C;
-				float: left;
-			}
 			#chocolatediv {
 				background-color: brown;
+				float: left;
+			}
+			#lemondiv {
+				background-color: #F2F25C;
 				float: left;
 			}
 			#deletecookies {
@@ -77,11 +77,11 @@
 		<div class="cookiebutton" id="sugardiv">Sugar</div>
 		<h2 id="sugarcount">0</h2>
 
-		<div class="cookiebutton" id="lemondiv">Lemon</div>
-		<h2 id="lemoncount">0</h2>
-
 		<div class="cookiebutton" id="chocolatediv">Chocolate</div>
 		<h2 id="chocolatecount">0</h2>
+
+		<div class="cookiebutton" id="lemondiv">Lemon</div>
+		<h2 id="lemoncount">0</h2>
 
 		<h1 id="totalcount">0</h1>
 
@@ -104,18 +104,18 @@
 			        alert("Delicioso azucar!")
 			    });
 
-			    var lemonCookieCount = Cookies.get("lemon");
-			    $("#lemondiv").on("click",function(){
-			        lemonCookieCount++;
-			        Cookies.set("lemon",lemonCookieCount);
-			        alert("Delicoso limon!")
-			    });
-
 			    var chocolateCookieCount = Cookies.get("chocolate");
 			    $("#chocolatediv").on("click",function(){
 			        chocolateCookieCount++;
 			        Cookies.set("chocolate", chocolateCookieCount);
 			        alert("Delicioso chocolate!")
+			    });
+
+			    var lemonCookieCount = Cookies.get("lemon");
+			    $("#lemondiv").on("click",function(){
+			        lemonCookieCount++;
+			        Cookies.set("lemon",lemonCookieCount);
+			        alert("Delicoso limon!")
 			    });
 
 			    //turn cookie count to 0
@@ -130,22 +130,22 @@
 			// SHOWING TOTAL COOKIES ON SCREEN
 
 			var sugarCookieCount = Cookies.get("sugar");
-			var lemonCookieCount = Cookies.get("lemon");
 			var chocolateCookieCount = Cookies.get("chocolate");
+			var lemonCookieCount = Cookies.get("lemon");
 
 			var sugarcookie_value = sugarCookieCount
 				if(sugarcookie_value){
 					document.getElementById("sugarcount").innerHTML = sugarcookie_value + " sugarsss"
 				}
-			var lemoncookie_value = lemonCookieCount
-				if(lemoncookie_value){
-					document.getElementById("lemoncount").innerHTML = lemoncookie_value + " lemonsss"
-				}
 			var chocolatecookie_value = chocolateCookieCount
 				if(chocolatecookie_value){
 					document.getElementById("chocolatecount").innerHTML = chocolatecookie_value + " chocolatesss"
 				}
-			var totalcookie_value = (parseInt(sugarCookieCount) + parseInt(lemonCookieCount) + parseInt(chocolateCookieCount)).toString()
+			var lemoncookie_value = lemonCookieCount
+				if(lemoncookie_value){
+					document.getElementById("lemoncount").innerHTML = lemoncookie_value + " lemonsss"
+				}
+			var totalcookie_value = (parseInt(sugarCookieCount) + parseInt(chocolateCookieCount) + parseInt(lemonCookieCount)).toString()
 			document.getElementById("totalcount").innerHTML = totalcookie_value + " total COOKIES"
 
 		</script>
