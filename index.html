@@ -141,8 +141,8 @@
 				if(chocolatecookie_value){
 					document.getElementById("chocolatecount").innerHTML = chocolatecookie_value + " chocolatesss"
 				}
-
-			document.getElementById("totalcount").innerHTML = (parseInt(sugarCookieCount) + parseInt(lemonCookieCount) + parseInt(chocolateCookieCount)).toString() + " total COOKIES"
+			var totalcookie_value = (parseInt(sugarCookieCount) + parseInt(lemonCookieCount) + parseInt(chocolateCookieCount)).toString()
+			document.getElementById("totalcount").innerHTML = totalcookie_value + " total COOKIES"
 
 		</script>
 	</body>
