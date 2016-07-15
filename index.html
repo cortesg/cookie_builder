@@ -123,9 +123,18 @@
 		    });
 		});
 
-		var sugarCookieCount = Cookies.get("sugar");
-		var lemonCookieCount = Cookies.get("lemon");
-		var chocolateCookieCount = Cookies.get("chocolate");
+		var ss = Cookies.get("sugar");
+		localStorage.setItem("sss", ss);
+		var sugarCookieCount = localStorage.getItem("sss");
+
+		var ll = Cookies.get("lemon");
+		localStorage.setItem("lll", ll);
+		var lemonCookieCount = localStorage.getItem("lll");
+
+		var cc = Cookies.get("chocolate");
+		localStorage.setItem("ccc", cc);
+		var chocolateCookieCount = localStorage.getItem("ccc");
+
 		document.getElementById("sugarcount").innerHTML = sugarCookieCount + " sugars"
 		document.getElementById("lemoncount").innerHTML =  + lemonCookieCount + " lemons"
 		document.getElementById("chocolatecount").innerHTML = chocolateCookieCount + " chocolates"	
