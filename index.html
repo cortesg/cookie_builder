@@ -101,18 +101,21 @@
 			        sugarCookieCount++;
 			        //set the incremented value of sugarCookieCount variable to sugar cookie
 			        Cookies.set("sugar",sugarCookieCount);
+			        alert("Delicioso azucar!")
 			    });
 
 			    var lemonCookieCount = Cookies.get("lemon");
 			    $("#lemondiv").on("click",function(){
 			        lemonCookieCount++;
 			        Cookies.set("lemon",lemonCookieCount);
+			        alert("Delicoso limon!")
 			    });
 
 			    var chocolateCookieCount = Cookies.get("chocolate");
 			    $("#chocolatediv").on("click",function(){
 			        chocolateCookieCount++;
 			        Cookies.set("chocolate", chocolateCookieCount);
+			        alert("Delicioso chocolate!")
 			    });
 
 			    //turn cookie count to 0
@@ -120,6 +123,7 @@
 			    	Cookies.set("sugar", "0");
 			    	Cookies.set("lemon", "0");
 			    	Cookies.set("chocolate", "0");
+			    	alert("When you refresh, your cookies will have vanished :(")
 			    });
 			});
 
