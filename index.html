@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Cookie Builder</title>
+		<title>Cookiesss Builder</title>
 		<!-- <link rel="stylesheet" type="text/css" href="style.css"> -->
 		<link href='https://fonts.googleapis.com/css?family=Cookie' rel='stylesheet' type='text/css'>
 		<style type="text/css">
@@ -45,7 +45,6 @@
 				height: 35px;
 				width: 300px;
 				border: 1px solid black;
-				clear: left;
 				text-shadow: 1px 1px gray;
 			}
 			#totalcount {
@@ -70,7 +69,7 @@
 
 		<h1 style="font-size: 70px; text-align: center">Cookie Builder</h1>
 
-		<h2 style="text-align: center">Click a circle to select that cookie. You can select multiple cookies! Refresh the page to see what you've gotten. Press "Delete" to get rid of all your cookies. But you don't wanna do that :(</h2>
+		<h2 style="text-align: center">Click a circle to select that cookie. You can select multiple cookiesss! You can visit the page again later and the app will keep track of your cookiesss. Each cookie is $0.50.</h2>
 
 		<!-- COOKIE BUTTONS -->
 
@@ -85,7 +84,7 @@
 
 		<h1 id="totalcount">0</h1>
 
-		<div id="deletecookies">Delete</div>
+		<div id="deletecookies">Checkout</div>
 		
 		<script src="cookies.js"></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
@@ -102,6 +101,19 @@
 			        //set the incremented value of sugarCookieCount variable to sugar cookie
 			        Cookies.set("sugar",sugarCookieCount);
 			        alert("Delicioso azucar!")
+			        //account for pluralization
+			        if(sugarCookieCount == 1){
+			        	document.getElementById("sugarcount").innerHTML = sugarCookieCount + " sugar"
+			        } else {
+			        	document.getElementById("sugarcount").innerHTML = sugarCookieCount + " sugarsss"
+			        }
+			        var totalcookie_value = (parseInt(sugarCookieCount) + parseInt(chocolateCookieCount) + parseInt(lemonCookieCount)).toString()
+			        //every cookie needs to account to the total
+					if(totalcookie_value == 1){
+						document.getElementById("totalcount").innerHTML = totalcookie_value + " total COOKIE"
+					} else {
+						document.getElementById("totalcount").innerHTML = totalcookie_value + " total COOKIESSS"
+					}
 			    });
 
 			    var chocolateCookieCount = Cookies.get("chocolate");
@@ -109,6 +121,19 @@
 			        chocolateCookieCount++;
 			        Cookies.set("chocolate", chocolateCookieCount);
 			        alert("Delicioso chocolate!")
+
+			        if(chocolateCookieCount == 1){
+			        	document.getElementById("chocolatecount").innerHTML = chocolateCookieCount + " chocolate"
+			        } else {
+			        	document.getElementById("chocolatecount").innerHTML = chocolateCookieCount + " chocolatesss"
+			        }
+			        var totalcookie_value = (parseInt(sugarCookieCount) + parseInt(chocolateCookieCount) + parseInt(lemonCookieCount)).toString()
+
+					if(totalcookie_value == 1){
+						document.getElementById("totalcount").innerHTML = totalcookie_value + " total COOKIE"
+					} else {
+						document.getElementById("totalcount").innerHTML = totalcookie_value + " total COOKIESSS"
+					}
 			    });
 
 			    var lemonCookieCount = Cookies.get("lemon");
@@ -116,37 +141,77 @@
 			        lemonCookieCount++;
 			        Cookies.set("lemon",lemonCookieCount);
 			        alert("Delicoso limon!")
+
+			        if(lemonCookieCount == 1){
+			        	document.getElementById("lemoncount").innerHTML = lemonCookieCount + " lemon"
+			        } else {
+			        	document.getElementById("lemoncount").innerHTML = lemonCookieCount + " lemonsss"
+			        }
+			        var totalcookie_value = (parseInt(sugarCookieCount) + parseInt(chocolateCookieCount) + parseInt(lemonCookieCount)).toString()
+
+					if(totalcookie_value == 1){
+						document.getElementById("totalcount").innerHTML = totalcookie_value + " total COOKIE"
+					} else {
+						document.getElementById("totalcount").innerHTML = totalcookie_value + " total COOKIESSS"
+					}
 			    });
 
 			    //turn cookie count to 0
 			    $("#deletecookies").on("click",function(){
-			    	Cookies.set("sugar", "0");
-			    	Cookies.set("lemon", "0");
-			    	Cookies.set("chocolate", "0");
-			    	alert("When you refresh, your cookies will have vanished :(")
-			    });
+			    	var totalcookie_value = (parseInt(sugarCookieCount) + parseInt(chocolateCookieCount) + parseInt(lemonCookieCount)).toString()
+			    	if (totalcookie_value == 1) {
+			    		var check = confirm("Are you sure you would like to buy 1 cookie?");
+			    	} else if (totalcookie_value == 0) {
+			    		alert("Choose a cookie first.");
+			    	} else {
+			    		var check = confirm("Are you sure you would like to buy " + totalcookie_value + " cookiesss?");
+			    	}
+			    	if (check == true) {
+				    	alert("Your total is " + "$" + (parseInt(totalcookie_value)*0.50).toFixed(2) + ". Thank you and come again to Cookie Builder!")
+				    	sugarCookieCount = 0
+				    	chocolateCookieCount = 0
+				    	lemonCookieCount = 0
+				    	Cookies.set("sugar", "0");
+				    	Cookies.set("lemon", "0");
+				    	Cookies.set("chocolate", "0");
+				    	document.getElementById("sugarcount").innerHTML = "0 sugarsss"
+				    	document.getElementById("chocolatecount").innerHTML =  "0 chocolatesss"
+				    	document.getElementById("lemoncount").innerHTML = "0 lemonsss"
+				    	document.getElementById("totalcount").innerHTML = "0 total COOKIESSS"
+				    }
+				});
 			});
 
-			// SHOWING TOTAL COOKIES ON SCREEN
+			// SHOWING TOTAL COOKIESSS ON SCREEN (needed in case you refresh screen to keep cookie values since it is outside the click function)
 
 			var sugarCookieCount = Cookies.get("sugar");
 			var chocolateCookieCount = Cookies.get("chocolate");
 			var lemonCookieCount = Cookies.get("lemon");
 
 			var sugarcookie_value = sugarCookieCount
-				if(sugarcookie_value){
-					document.getElementById("sugarcount").innerHTML = sugarcookie_value + " sugarsss"
-				}
+				if(sugarcookie_value == 1){
+			        document.getElementById("sugarcount").innerHTML = sugarcookie_value + " sugar"
+			    } else {
+			        document.getElementById("sugarcount").innerHTML = sugarcookie_value + " sugarsss"
+			    }
 			var chocolatecookie_value = chocolateCookieCount
-				if(chocolatecookie_value){
-					document.getElementById("chocolatecount").innerHTML = chocolatecookie_value + " chocolatesss"
-				}
+				if(chocolatecookie_value == 1){
+			        document.getElementById("chocolatecount").innerHTML = chocolatecookie_value + " chocolate"
+			    } else {
+			        document.getElementById("chocolatecount").innerHTML = chocolatecookie_value + " chocolatesss"
+			    }
 			var lemoncookie_value = lemonCookieCount
-				if(lemoncookie_value){
-					document.getElementById("lemoncount").innerHTML = lemoncookie_value + " lemonsss"
-				}
+				if(lemoncookie_value == 1){
+			        document.getElementById("lemoncount").innerHTML = lemoncookie_value + " lemon"
+			    } else {
+			        document.getElementById("lemoncount").innerHTML = lemoncookie_value + " lemonsss"
+			    }
 			var totalcookie_value = (parseInt(sugarCookieCount) + parseInt(chocolateCookieCount) + parseInt(lemonCookieCount)).toString()
-			document.getElementById("totalcount").innerHTML = totalcookie_value + " total COOKIES"
+				if(totalcookie_value == 1){
+					document.getElementById("totalcount").innerHTML = totalcookie_value + " total COOKIE"
+				} else {
+					document.getElementById("totalcount").innerHTML = totalcookie_value + " total COOKIESSS"
+				}
 
 		</script>
 	</body>
