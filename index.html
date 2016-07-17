@@ -62,7 +62,7 @@
 			        sugarCookieCount++; //++ adds 1
 			        //set the incremented value of sugarCookieCount variable to sugar cookie
 			        Cookies.set("sugar",sugarCookieCount);
-			        alert("Delicioso azucar!")      
+			        // alert("Delicioso azucar!")      
 			        $("#sugarcount").html(sugarCookieCount + pluralize(" sugar", sugarCookieCount)) //pluralize function shortcut from other js file
 			        //call total function from above
 			        total()
@@ -71,7 +71,7 @@
 			    $("#chocolatediv").on("click",function(){
 			        chocolateCookieCount++;
 			        Cookies.set("chocolate", chocolateCookieCount);
-			        alert("Delicioso chocolate!")
+			        // alert("Delicioso chocolate!")
 					$("#chocolatecount").html(chocolateCookieCount + pluralize(" chocolate", chocolateCookieCount))
 			        total()
 			    });
@@ -79,7 +79,7 @@
 			    $("#lemondiv").on("click",function(){
 			        lemonCookieCount++;
 			        Cookies.set("lemon",lemonCookieCount);
-			        alert("Delicoso limon!")
+			        // alert("Delicoso limon!")
 					$("#lemoncount").html(lemonCookieCount + pluralize(" lemon", lemonCookieCount))
 			        total()
 			    });
