@@ -27,7 +27,7 @@
 		<div id="deletecookies">Checkout</div>
 		
 		<script src="cookies.js"></script>
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+		<script src="jquery-3.1.0.min.js"></script>
 		<script src="pluralize.js"></script>
 		<script>
 
@@ -36,26 +36,26 @@
 			var chocolateCookieCount = Cookies.get("chocolate");
 			var lemonCookieCount = Cookies.get("lemon");
 			//every cookie needs to account to the total
-			var totalcookie_value = (parseInt(sugarCookieCount) + parseInt(chocolateCookieCount) + parseInt(lemonCookieCount)).toString() 
+			var totalcookie_value = (parseInt(sugarCookieCount) + parseInt(chocolateCookieCount) + parseInt(lemonCookieCount)).toString(); //parseInt() - turns what's inside to integer;
 			//for first-time users; if the cookies don't exist, you have 0 cookies
 			if (sugarCookieCount == null && chocolateCookieCount == null && lemonCookieCount == null) {
-				Cookies.set("sugar", "0")
-				Cookies.set("chocolate", "0")
-				Cookies.set("lemon", "0")
-			}
+				Cookies.set("sugar", "0");
+				Cookies.set("chocolate", "0");
+				Cookies.set("lemon", "0");
+			};
 
 			$(document).ready(function(){
 			    //function to make total appear on screen
 				function total(){
 					//need to call below var again to get function to live update totalcookie_value
-			    	var totalcookie_value = (parseInt(sugarCookieCount) + parseInt(chocolateCookieCount) + parseInt(lemonCookieCount)).toString() //parseInt() - turns to integer;
+			    	var totalcookie_value = (parseInt(sugarCookieCount) + parseInt(chocolateCookieCount) + parseInt(lemonCookieCount)).toString(); 
 					//account for pluralization; I would use the pluralize function from other js file but it doesn't work on the word "cookie" for some reason?
 					if(totalcookie_value == 1){
 						$("#totalcount").html(totalcookie_value + " total COOKIE")
 					} else {
 						$("#totalcount").html(totalcookie_value + " total COOKIES") 
-					}
-				}   
+					};
+				};   
 
 				//Click functions below
 			    $("#sugardiv").on("click",function(){
@@ -63,25 +63,25 @@
 			        //set the incremented value of sugarCookieCount variable to sugar cookie
 			        Cookies.set("sugar",sugarCookieCount);
 			        // alert("Delicioso azucar!")      
-			        $("#sugarcount").html(sugarCookieCount + pluralize(" sugar", sugarCookieCount)) //pluralize function shortcut from other js file
+			        $("#sugarcount").html(sugarCookieCount + pluralize(" sugar", sugarCookieCount)); //pluralize function shortcut from other js file
 			        //call total function from above
-			        total()
+			        total();
 			    });
 
 			    $("#chocolatediv").on("click",function(){
 			        chocolateCookieCount++;
 			        Cookies.set("chocolate", chocolateCookieCount);
 			        // alert("Delicioso chocolate!")
-					$("#chocolatecount").html(chocolateCookieCount + pluralize(" chocolate", chocolateCookieCount))
-			        total()
+					$("#chocolatecount").html(chocolateCookieCount + pluralize(" chocolate", chocolateCookieCount));
+			        total();
 			    });
 
 			    $("#lemondiv").on("click",function(){
 			        lemonCookieCount++;
 			        Cookies.set("lemon",lemonCookieCount);
 			        // alert("Delicoso limon!")
-					$("#lemoncount").html(lemonCookieCount + pluralize(" lemon", lemonCookieCount))
-			        total()
+					$("#lemoncount").html(lemonCookieCount + pluralize(" lemon", lemonCookieCount));
+			        total();
 			    });
 
 			    //turn cookie count to 0
@@ -93,20 +93,20 @@
 			    		alert("Choose a cookie first.");
 			    	} else {
 			    		var check = confirm("Are you sure you would like to buy " + totalcookie_value + " cookies?");
-			    	}
+			    	};
 				    	if (check == true) {
 					    	alert("Your total is " + "$" + (parseInt(totalcookie_value)*0.50).toFixed(2) + ". Thank you and come again to Cookie Builder!") //toFixed(#) rounds number to #'s decimal place
-					    	sugarCookieCount = 0
-					    	chocolateCookieCount = 0
-					    	lemonCookieCount = 0
+					    	sugarCookieCount = 0;
+					    	chocolateCookieCount = 0;
+					    	lemonCookieCount = 0;
 					    	Cookies.set("sugar", "0");
 					    	Cookies.set("lemon", "0");
 					    	Cookies.set("chocolate", "0");
-					    	$("#sugarcount").html("0 sugars")
-					    	$("#chocolatecount").html("0 chocolates")
-					    	$("#lemoncount").html("0 lemons")
-					    	$("#totalcount").html("0 total COOKIES")
-				   		} 
+					    	$("#sugarcount").html("0 sugars");
+					    	$("#chocolatecount").html("0 chocolates");
+					    	$("#lemoncount").html("0 lemons");
+					    	$("#totalcount").html("0 total COOKIES");
+				   		}; 
 				});
 			});
 
@@ -115,31 +115,31 @@
 			var sugarCookieCount = Cookies.get("sugar");
 			var chocolateCookieCount = Cookies.get("chocolate");
 			var lemonCookieCount = Cookies.get("lemon");
-			var totalcookie_value = (parseInt(sugarCookieCount) + parseInt(chocolateCookieCount) + parseInt(lemonCookieCount)).toString()
+			var totalcookie_value = (parseInt(sugarCookieCount) + parseInt(chocolateCookieCount) + parseInt(lemonCookieCount)).toString();
 
 				if(sugarCookieCount == 1){
 			        document.getElementById("sugarcount").innerHTML = sugarCookieCount + " sugar"
 			    } else {
 			        document.getElementById("sugarcount").innerHTML = sugarCookieCount + " sugars"
-			    }
+			    };
 
 				if(chocolateCookieCount == 1){
 			        document.getElementById("chocolatecount").innerHTML = chocolateCookieCount + " chocolate"
 			    } else {
 			        document.getElementById("chocolatecount").innerHTML = chocolateCookieCount + " chocolates"
-			    }
+			    };
 
 				if(lemonCookieCount == 1){
 			        document.getElementById("lemoncount").innerHTML = lemonCookieCount + " lemon"
 			    } else {
 			        document.getElementById("lemoncount").innerHTML = lemonCookieCount + " lemons"
-			    }
+			    };
 				
 				if(totalcookie_value == 1){
 					document.getElementById("totalcount").innerHTML = totalcookie_value + " total COOKIE"
 				} else {
 					document.getElementById("totalcount").innerHTML = totalcookie_value + " total COOKIES"
-				}
+				};
 
 		</script>
 	</body>
