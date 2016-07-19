@@ -35,8 +35,6 @@
 			var sugarCookieCount = Cookies.get("sugar");
 			var chocolateCookieCount = Cookies.get("chocolate");
 			var lemonCookieCount = Cookies.get("lemon");
-			//every cookie needs to account to the total
-			var totalcookie_value = (parseInt(sugarCookieCount) + parseInt(chocolateCookieCount) + parseInt(lemonCookieCount)).toString(); //parseInt() - turns what's inside to integer;
 			//for first-time users; if the cookies don't exist, you have 0 cookies
 			if (sugarCookieCount == null && chocolateCookieCount == null && lemonCookieCount == null) {
 				Cookies.set("sugar", "0");
@@ -47,8 +45,8 @@
 			$(document).ready(function(){
 			    //function to make total appear on screen
 				function total(){
-					//need to call below var again to get function to live update totalcookie_value
-			    	var totalcookie_value = (parseInt(sugarCookieCount) + parseInt(chocolateCookieCount) + parseInt(lemonCookieCount)).toString(); 
+					//every cookie needs to account to the total
+			    	var totalcookie_value = (parseInt(sugarCookieCount) + parseInt(chocolateCookieCount) + parseInt(lemonCookieCount)).toString(); //parseInt() - turns what's inside to integer;
 					//account for pluralization; I would use the pluralize function from other js file but it doesn't work on the word "cookie" for some reason?
 					if(totalcookie_value == 1){
 						$("#totalcount").html(totalcookie_value + " total COOKIE")
