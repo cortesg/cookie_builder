@@ -29,6 +29,7 @@
 		<script src="cookies.js"></script>
 		<script src="jquery-3.1.0.min.js"></script>
 		<script src="pluralize.js"></script>
+        <script type = "text/javascript" src = "https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/jquery-ui.min.js"></script>
 		<script>
 
 			//getting the value of each cookie and assigning them to variables
@@ -40,6 +41,7 @@
 				Cookies.set("sugar", "0");
 				Cookies.set("chocolate", "0");
 				Cookies.set("lemon", "0");
+				var totalcookie_value = 0
 			};
 
 			$(document).ready(function(){
@@ -57,6 +59,7 @@
 
 				//Click functions below
 			    $("#sugardiv").on("click",function(){
+			    	$( "#sugardiv" ).effect( "shake", {times:3, distance:5, direction:"up"},300);
 			        sugarCookieCount++; //++ adds 1
 			        //set the incremented value of sugarCookieCount variable to sugar cookie
 			        Cookies.set("sugar",sugarCookieCount);
@@ -67,6 +70,7 @@
 			    });
 
 			    $("#chocolatediv").on("click",function(){
+			    	$( "#chocolatediv" ).effect( "shake", {times:3, distance:5, direction:"up"},300);
 			        chocolateCookieCount++;
 			        Cookies.set("chocolate", chocolateCookieCount);
 			        // alert("Delicioso chocolate!")
@@ -75,6 +79,7 @@
 			    });
 
 			    $("#lemondiv").on("click",function(){
+			    	$( "#lemondiv" ).effect( "shake", {times:3, distance:5, direction:"up"},300);
 			        lemonCookieCount++;
 			        Cookies.set("lemon",lemonCookieCount);
 			        // alert("Delicoso limon!")
@@ -107,6 +112,10 @@
 				   		}; 
 				});
 			});
+
+
+  
+
 
 			// SHOWING TOTAL COOKIES ON SCREEN (needed in case you refresh screen to keep cookie values since it is outside jQuery click functions)
 
